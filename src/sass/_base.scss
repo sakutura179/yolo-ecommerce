@@ -41,13 +41,13 @@ $val in $colors {
 
 // lap cac gia tri de tao grid template
 @each $var in $numbers {
-    .grid-col-#{$val} {
+    .grid-col-#{$var} {
         grid-template-columns: repeat($var, 1fr);
     }
 }
 
 @each $var in $numbers {
-    .grid-col-m-#{$val} {
+    .grid-col-m-#{$var} {
         @include tablet {
             grid-template-columns: repeat($var, 1fr);
         }
@@ -55,7 +55,7 @@ $val in $colors {
 }
 
 @each $var in $numbers {
-    .grid-col-s-#{$val} {
+    .grid-col-s-#{$var} {
         @include mobile {
             grid-template-columns: repeat($var, 1fr);
         }
