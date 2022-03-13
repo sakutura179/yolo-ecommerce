@@ -28,6 +28,10 @@ a {
     color: unset;
 }
 
+a:hover {
+    color: $main-color;
+}
+
 @each $color,
 $val in $colors {
     .color-#{$color} {
@@ -37,6 +41,10 @@ $val in $colors {
     .bg-#{$color} {
         background-color: $val;
     }
+}
+
+.grid {
+    display: grid;
 }
 
 // lap cac gia tri de tao grid template
