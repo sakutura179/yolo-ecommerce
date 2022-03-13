@@ -49,7 +49,7 @@
 
             &__title,
             &__description {
-                margin-bottom: 60px;
+                margin-bottom: 30px;
 
                 @include tablet {
                     margin-bottom: 15px;
@@ -169,6 +169,10 @@
         bottom: 25px;
         left: 50%;
         transform: translateX(-50%);
+
+        @include tablet {
+            z-index: 91;
+        }
 
         &__item~&__item {
             margin-left: 10px;

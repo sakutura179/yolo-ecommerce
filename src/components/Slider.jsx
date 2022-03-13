@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
+import Button from './Button'
+
 const Slider = props => {
     const data = props.data
     const [activeSlide, setActiveSlide] = React.useState(0)
@@ -78,7 +80,13 @@ const SliderItem = props => (
             </div>
             <div className='slider__item__info__btn'>
                 <Link to={props.item.path}>
-                    <button>Xem chi tiết</button>
+                    <Button
+                        backgroundColor={props.item.color}
+                        icon="bx bx-cart"
+                        animate={true}
+                    >
+                        Xem chi tiết
+                    </Button>
                 </Link>
             </div>
         </div>
