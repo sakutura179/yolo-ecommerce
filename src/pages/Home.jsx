@@ -1,14 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import Helmet from '../components/Helmet'
 import Slider from '../components/Slider'
 import Grid from '../components/Grid'
-import Section, { SectionBody, SectionTitle } from '../components/Section'
-import PolicyCart from '../components/PolicyCart'
+import Section, { SectionTitle, SectionBody } from '../components/Section'
+import PolicyCard from '../components/PolicyCard'
+import ProductCard from '../components/ProductCard'
 
 import sliderData from '../assets/fake-data/slider'
 import policy from '../assets/fake-data/policy'
-import { Link } from 'react-router-dom'
+import productData from '../assets/fake-data/products'
 
 
 const Home = () => {
@@ -33,7 +35,7 @@ const Home = () => {
                         {
                             policy.map((item, index) => (
                                 <Link to="/policy" key={index}>
-                                    <PolicyCart
+                                    <PolicyCard
                                         name={item.name}
                                         description={item.description}
                                         icon={item.icon}
@@ -45,6 +47,34 @@ const Home = () => {
                 </SectionBody>
             </Section>
             {/* End Policy section */}
+            {/* Best selling product section */}
+            <Section>
+                <SectionTitle>
+                    top sản phẩm bán chạy trong tuần
+                </SectionTitle>
+                <SectionBody>
+                    <Grid
+                        col={4}
+                        mdCol={2}
+                        smCol={1}
+                        gap={20}
+                    >
+                        {
+                            productData.getProducts(4).map((item, index) => (
+                                <ProductCard
+                                    key={index}
+                                    img01={item.image01}
+                                    img02={item.image02}
+                                    name={item.title}
+                                    price={parseInt(item.price)}
+                                    slug={item.slug}
+                                />
+                            ))
+                        }
+                    </Grid>
+                </SectionBody>
+            </Section>
+            {/* End Best selling product section */}
         </Helmet>
     )
 }
