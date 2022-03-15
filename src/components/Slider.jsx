@@ -8,7 +8,7 @@ const Slider = props => {
     const data = props.data
     const [activeSlide, setActiveSlide] = React.useState(0)
 
-    const timeOut = props.timeOut ? props.timeOut : 3000
+    const timeOut = props.timeOut ? props.timeOut : 5000
 
     React.useEffect(() => {
         if (props.auto) {

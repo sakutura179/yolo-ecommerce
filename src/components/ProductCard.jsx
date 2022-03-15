@@ -29,7 +29,7 @@ const ProductCard = props => {
                     icon='bx bx-cart'
                     animate={true}
                 >
-                    thêm vào giỏ hàng
+                    chọn mua
                 </Button>
             </div>
         </div>

@@ -11,6 +11,7 @@ import ProductCard from '../components/ProductCard'
 import sliderData from '../assets/fake-data/slider'
 import policy from '../assets/fake-data/policy'
 import productData from '../assets/fake-data/products'
+import banner from '../assets/images/banner.png'
 
 
 const Home = () => {
@@ -20,9 +21,10 @@ const Home = () => {
             <Slider
                 data={sliderData}
                 control={true}
-                auto={false}
+                auto={true}
             />
             {/* End slider */}
+
             {/* Policy section */}
             <Section>
                 <SectionBody>
@@ -47,6 +49,7 @@ const Home = () => {
                 </SectionBody>
             </Section>
             {/* End Policy section */}
+
             {/* Best selling product section */}
             <Section>
                 <SectionTitle>
@@ -75,6 +78,72 @@ const Home = () => {
                 </SectionBody>
             </Section>
             {/* End Best selling product section */}
+
+            {/* Newest product section */}
+            <Section>
+                <SectionTitle>
+                    sản phẩm mới
+                </SectionTitle>
+                <SectionBody>
+                    <Grid
+                        col={4}
+                        mdCol={2}
+                        smCol={1}
+                        gap={20}
+                    >
+                        {
+                            productData.getProducts(4).map((item, index) => (
+                                <ProductCard
+                                    key={index}
+                                    img01={item.image01}
+                                    img02={item.image02}
+                                    name={item.title}
+                                    price={parseInt(item.price)}
+                                    slug={item.slug}
+                                />
+                            ))
+                        }
+                    </Grid>
+                </SectionBody>
+            </Section>
+            {/* End Newest product section */}
+
+            {/* Banner section */}
+            <Section>
+                <SectionBody>
+                    <img src={banner} alt='' />
+                </SectionBody>
+            </Section>
+            {/* End banner section */}
+
+            {/* Popular product section */}
+            <Section>
+                <SectionTitle>
+                    phổ biến
+                </SectionTitle>
+                <SectionBody>
+                    <Grid
+                        col={4}
+                        mdCol={2}
+                        smCol={1}
+                        gap={20}
+                    >
+                        {
+                            productData.getProducts(8).map((item, index) => (
+                                <ProductCard
+                                    key={index}
+                                    img01={item.image01}
+                                    img02={item.image02}
+                                    name={item.title}
+                                    price={parseInt(item.price)}
+                                    slug={item.slug}
+                                />
+                            ))
+                        }
+                    </Grid>
+                </SectionBody>
+            </Section>
+            {/* End Popular product section */}
         </Helmet>
     )
 }
