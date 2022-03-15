@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const PolicyCart = props => {
+const PolicyCard = props => {
     return (
         <div className='policy-card'>
             <div className='policy-card__icon'>
@@ -19,10 +19,10 @@ const PolicyCart = props => {
     )
 }
 
-PolicyCart.propTypes = {
+PolicyCard.propTypes = {
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired
 }
 
-export default PolicyCart
+export default PolicyCard
