@@ -108,10 +108,17 @@ const Catalog = () => {
         updateProducts()
     }, [updateProducts])
 
+    const filterRef = React.useRef(null);
+
+    const toggleFilter = () => filterRef.current.classList.toggle('active')
+
     return (
         <Helmet title='Sản phẩm'>
             <div className='catalog'>
-                <div className='catalog__filter'>
+                <div className='catalog__filter' ref={filterRef}>
+                    <div className='catalog__filter__close' onClick={toggleFilter}>
+                        <i className='bx bx-x'></i>
+                    </div>
                     <div className='catalog__filter__widget'>
                         <div className='catalog__filter__widget__title'>
                             danh mục sản phẩm
@@ -184,6 +191,9 @@ const Catalog = () => {
                             <Button size='sm' >xóa bộ lộc</Button>
                         </div>
                     </div>
+                </div>
+                <div className='catalog__toggle-button' onClick={toggleFilter}>
+                    <Button size='sm'>Menu</Button>
                 </div>
                 <div className='catalog__content'>
                     <InfinityList
