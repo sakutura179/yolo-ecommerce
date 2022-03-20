@@ -187,13 +187,13 @@ const Catalog = () => {
                         </div>
                     </div>
                     <div className='catalog__filter__widget'>
-                        <div className='catalog__filter__widget__content' onClick={clearFilter}>
-                            <Button size='sm' >xóa bộ lộc</Button>
+                        <div className='catalog__filter__widget__content'>
+                            <Button size='sm' onClick={clearFilter}>xóa bộ lộc</Button>
                         </div>
                     </div>
                 </div>
-                <div className='catalog__toggle-button' onClick={toggleFilter}>
-                    <Button size='sm'>Menu</Button>
+                <div className='catalog__toggle-button'>
+                    <Button size='sm' onClick={toggleFilter}>Menu</Button>
                 </div>
                 <div className='catalog__content'>
                     <InfinityList
