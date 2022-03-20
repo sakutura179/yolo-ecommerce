@@ -171,6 +171,24 @@ const ProductView = props => {
                     </Button>
                 </div>
             </div>
+            <div className={`product-description mobile ${descExpand ? 'expand' : ''}`}>
+                <div className='product-description__title'>
+                    Chi tiết sản phẩm
+                </div>
+                {/* Note here */}
+                <div className='product-description__content' dangerouslySetInnerHTML={{ __html: product.description }}>
+                </div>
+                <div
+                    className='product-description__toggle'
+                >
+                    <Button
+                        size='sm'
+                        onClick={() => setDescExpand(!descExpand)}
+                    >
+                        {descExpand ? 'Thu gọn' : 'Xem thêm'}
+                    </Button>
+                </div>
+            </div>
         </div>
     )
 }
