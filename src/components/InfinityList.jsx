@@ -25,14 +25,14 @@ const InfinityList = props => {
     React.useEffect(() => {
         window.addEventListener("scroll", () => {
             // Kiem tra xem listRef co duoc set hay khong
-            if (listRef.current) {
+            if (listRef.current && listRef) {
                 if (window.scrollY + window.innerHeight >= listRef.current.clientHeight + listRef.current.offsetTop + 200) {
                     setLoad(true);
                 }
             }
         })
 
-        return () => window.removeEventListener("scroll");
+        return () => window.removeEventListener("scroll", () => { });
     }, [listRef])
 
     // useEffect nay se duoc goi khi scroll va load duoc thay doi gia tri
