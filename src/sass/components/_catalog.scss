@@ -57,6 +57,7 @@
         &__close {
             display: none;
             align-self: flex-end;
+            cursor: pointer;
 
             @include tablet {
                 display: block;
