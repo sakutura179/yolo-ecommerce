@@ -15,14 +15,9 @@ const mainNav = [
         path: "/catalog"
     },
     {
-        display: "Phụ kiện",
-        path: "/accessories"
-    },
-    {
         display: "Liên hệ",
         path: "/contact"
-    },
-
+    }
 ]
 
 const Header = () => {
@@ -41,7 +36,7 @@ const Header = () => {
         });
 
         return () => {
-            window.removeEventListener('scroll');
+            window.removeEventListener('scroll', () => { });
         }
     }, []);
 
@@ -54,7 +49,7 @@ const Header = () => {
             <div className='container'>
                 <div className='header__logo'>
                     <Link to="/">
-                        <img src={logo} alt="logo" />
+                        <img src={logo} alt="logo" onClick={() => window.scrollTo(0, 0)} />
                     </Link>
                 </div>
                 <div className='header__menu'>
@@ -91,15 +86,9 @@ const Header = () => {
                     </div>
                     <div className='header__menu__right'>
                         <div className='header__menu__item header__menu__right__item'>
-                            <i className='bx bx-search'></i>
-                        </div>
-                        <div className='header__menu__item header__menu__right__item'>
                             <Link to="/cart">
                                 <i className='bx bx-shopping-bag' ></i>
                             </Link>
-                        </div>
-                        <div className='header__menu__item header__menu__right__item'>
-                            <i className='bx bx-user'></i>
                         </div>
                     </div>
                 </div>
