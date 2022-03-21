@@ -51,6 +51,11 @@
     }
 
     &-block {
+        font-size: 1rem;
         width: 100%;
+    }
+
+    &-block &__txt {
+        padding: .75rem 0;
     }
 }

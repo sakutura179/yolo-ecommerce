@@ -39,7 +39,7 @@ const ProductView = props => {
             cart = JSON.parse(cart);
 
             // Tim kiem xem co san pham size va mau sac nay trong gio hang chua
-            var tmp = cart.findIndex(item => item.id === product.id && item.color === color && item.size === size);
+            let tmp = cart.findIndex(item => item.id === product.id && item.color === color && item.size === size);
 
             if (tmp !== -1) {
                 cart[tmp].quantity += quantity

@@ -40,6 +40,9 @@ const Cart = () => {
                         </div>
                     </div>
                     <div className='cart__info__btn'>
+                        <Button size='block' onClick={() => window.location.reload()}>
+                            cập nhật đơn hàng
+                        </Button>
                         <Button size='block'>
                             đặt hàng
                         </Button>

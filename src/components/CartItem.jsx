@@ -1,29 +1,57 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 import currencyFormat from '../utils/currencyFormat'
 
 const CartItem = props => {
     // item la product duoc truyen vao tu component cha
-    const [item, setItem] = React.useState(props.item);
-    const [quantity, setQuantity] = React.useState(props.item.quantity);
+    const [item, setItem] = React.useState(props.item)
+    const [quantity, setQuantity] = React.useState(props.item.quantity)
 
     React.useEffect(() => {
-        setItem(props.item);
-        setQuantity(props.item.quantity);
+        setItem(props.item)
+        setQuantity(props.item.quantity)
     }, [props])
 
-    const updateQuantity = (type) => {
-        if (type === '+') {
-            setQuantity(quantity + 1);
+    const addToLocal = (newQuantity) => {
+        let cart = localStorage.getItem('cart')
+        if (cart) {
+            cart = JSON.parse(cart)
+
+            let tmp = cart.findIndex(value => value.id === item.id && value.color === item.color && value.size === item.size)
+
+            if (tmp !== -1)
+                cart[tmp].quantity = newQuantity
+
+            localStorage.setItem('cart', JSON.stringify(cart))
         }
-        else
-            setQuantity(quantity - 1 === 0 ? 1 : quantity - 1);
+    }
+
+    const updateQuantity = (type) => {
+        let newQuantity = quantity
+        if (type === '+') {
+            setQuantity(newQuantity + 1)
+            addToLocal(newQuantity + 1)
+        }
+        else {
+            newQuantity = quantity - 1 === 0 ? 1 : quantity - 1
+            setQuantity(newQuantity)
+            addToLocal(newQuantity)
+        }
     }
 
     const removeItem = () => {
-        console.log('remove item');
+        let cart = localStorage.getItem('cart')
+        if (cart) {
+            cart = JSON.parse(cart)
+
+            let newCart = cart.filter(value => value.id !== item.id || value.color !== item.color || value.size !== item.size)
+
+            localStorage.setItem('cart', JSON.stringify(newCart))
+
+            window.location.reload()
+        }
     }
 
     return (
