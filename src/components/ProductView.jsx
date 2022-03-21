@@ -32,6 +32,45 @@ const ProductView = props => {
         setQuantity(1);
     }, [product])
 
+    // Ham xu ly them san pham vao local storage cart
+    const addToLocal = () => {
+        let cart = localStorage.getItem('cart');
+        if (cart) {
+            cart = JSON.parse(cart);
+
+            // Tim kiem xem co san pham size va mau sac nay trong gio hang chua
+            var tmp = cart.findIndex(item => item.id === product.id && item.color === color && item.size === size);
+
+            if (tmp !== -1) {
+                cart[tmp].quantity += quantity
+            } else {
+                cart.push({
+                    id: product.id,
+                    slug: product.slug,
+                    price: product.price,
+                    color,
+                    size,
+                    quantity
+                })
+            }
+
+            // TH nao cung se set lai gia tri cho gio hang
+            localStorage.setItem('cart', JSON.stringify(cart));
+        } else {
+            // Neu trong localStorage chua co gio hang thi tao moi
+            cart = [{
+                id: product.id,
+                slug: product.slug,
+                price: product.price,
+                color,
+                size,
+                quantity
+            }]
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+    }
+
     // Kiem tra xem co chon mau sac chua
     const check = () => {
         if (color === '') {
@@ -48,12 +87,16 @@ const ProductView = props => {
 
     const addToCart = () => {
         if (check()) {
-            console.log({ color, size, quantity });
+            addToLocal()
+            alert('Đã thêm vào giỏ hàng');
         }
     }
 
     const goToCart = () => {
-        if (check()) props.history.push('/cart');
+        if (check()) {
+            addToLocal()
+            props.history.push('/cart')
+        }
     }
 
     return (
