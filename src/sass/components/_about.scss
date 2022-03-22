@@ -1,0 +1,32 @@
+.about {
+    width: 70%;
+    margin: 0 auto;
+
+    &__title {
+        width: 100%;
+        font-weight: 500;
+        font-size: 3rem;
+        margin-bottom: 20px;
+        text-align: center;
+        text-transform: capitalize;
+    }
+
+    &__content {
+        width: 100%;
+        padding: 0 1rem;
+        text-align: justify;
+        font-weight: 300;
+        font-size: 1.15rem;
+
+        &__item {
+            margin-bottom: 20px;
+            line-height: 20px;
+        }
+
+        &__slogan {
+            font-size: 1.25rem;
+            font-weight: 500;
+            font-style: italic;
+        }
+    }
+}
