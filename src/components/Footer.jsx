@@ -13,33 +13,21 @@ const footerAbout = [
     {
         display: "Liên hệ",
         path: '/contact'
-    },
-    {
-        display: "Tuyển dụng",
-        path: '/about'
-    },
-    {
-        display: "Tin tức",
-        path: '/about'
-    },
-    {
-        display: "Hệ thống cửa hàng",
-        path: '/about'
     }
 ]
 
 const footerCustomer = [
     {
         display: "Chính sách đổi trả",
-        path: '/about'
+        path: '/policy'
     },
     {
         display: "Chính sách hoàn tiền",
-        path: '/about'
+        path: '/policy'
     },
     {
         display: "Chính sách bảo hành",
-        path: '/about'
+        path: '/policy'
     }
 ]
 
