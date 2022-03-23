@@ -69,7 +69,6 @@
 
         &__cart-item {
             width: 100%;
-            position: sticky;
 
             &__item {
                 @include flex(center, flex-start);
