@@ -43,9 +43,9 @@ const Cart = () => {
                         <Button size='block' onClick={() => window.location.reload()}>
                             cập nhật đơn hàng
                         </Button>
-                        <Button size='block'>
-                            đặt hàng
-                        </Button>
+                        <Link to={cart.length !== 0 ? '/checkout' : '/'}>
+                            <Button size='block'>đặt hàng</Button>
+                        </Link>
                         <Link to='/catalog'>
                             <Button size='block'>tiếp tục mua hàng</Button>
                         </Link>

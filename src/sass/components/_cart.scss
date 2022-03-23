@@ -42,8 +42,9 @@
             }
         }
 
-        &__btn>* {
-            margin-bottom: 20px;
+        &__btn button,
+        &__btn a {
+            margin-bottom: 15px;
         }
     }
 
